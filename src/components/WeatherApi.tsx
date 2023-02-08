@@ -5,11 +5,15 @@ import { Box, Button, Card, Heading, Image, Select, Text } from '@chakra-ui/reac
 const cities = ["Jeddah", "Riyadh", "Liverpool", "Cambridge", "Amsterdam"];
 
 function WeatherApi() {
+    const API_KEY = 'ea253e44456f450ea05205130230702'
+
   const [info, setInfo] = useState<any>({});
   const [city, setCity] = useState(cities[0]);
 
+  
+
   useEffect(() => {
-    axios.get(`http://api.weatherapi.com/v1/current.json?key=ea253e44456f450ea05205130230702&q=${city}&aqi=no`)
+    axios.get(`http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}&aqi=no`)
       .then(res => setInfo(res.data))
   }, [city]);
 
