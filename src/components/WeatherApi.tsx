@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import { Box, Button, Card, Heading, Image, Select, Text } from '@chakra-ui/react'
+import { Box, Card, Heading, Image, Select, Text } from '@chakra-ui/react'
 
-const cities = ["Jeddah", "Riyadh", "Liverpool", "Cambridge", "Amsterdam"];
+// Weather for List of Cities I've been there
+const cities = ["Madrid", "Nice", "London", "Barcelona", "Liverpool", "Cambridge", "Amsterdam", "Oxford", "Jeddah", "Riyadh"];
 
 function WeatherApi() {
     const API_KEY = 'ea253e44456f450ea05205130230702'
@@ -20,11 +21,13 @@ function WeatherApi() {
   const { location = {}, current = {}, condition = {} } = info;
 
   return (
-    <><Box height={'100vh'} bgColor={'#20262E'} opacity={0.7} ><Box maxW='800px' mx='auto'>
-          <Select pt={20} boxShadow='lg'
+    <><Box height={'100vh'} bgColor={'#222222'} ><Box maxW='800px' mx='auto'>
+          
+          <Box pt={20} mx={'auto'} ml={'270px'} mb={5} color={'white'} fontSize={"32px"}>Cities I've visited</Box>
+          <Select  boxShadow='lg'
   borderRadius='lg'
-  bg={`linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
-      url(https://assets-global.website-files.com/6009ec8cda7f305645c9d91b/620bd6d655f2044afa28bff4_glassmorphism.jpeg)`}
+  color={'black'}
+  bgColor={'#eee'}
   backgroundSize='cover' value={city} onChange={e => setCity(e.target.value)}>
               {cities.map(c => (
                   <option key={c} value={c}>{c}</option>
